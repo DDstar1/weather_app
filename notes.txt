@@ -21,3 +21,14 @@ npm i --save-dev @types/eslint-plugin-react
 
 
 EXPO, ESLINT, NativeWind, SafeAreaView
+
+
+ git init -b [repo name]
+
+ git commit -m "First commit"
+
+ git remote add origin https://github.com/DDstar1/weather_app.git
+
+ git push -u origin main
+
+ ss
