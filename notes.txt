@@ -1,0 +1,23 @@
+npm install -g -expo-cli
+
+npx create-expo-app [appName]
+
+cd [appName]
+
+npm start 
+
+npx expo start -c 
+npm start --reset-cache
+
+npm install eslint --save-dev
+
+npx eslint --init
+
+npm install eslint globals @eslint/js eslint-plugin-react --legacy-peer-deps
+
+npm install @react-native-community/eslint-config --save-dev
+
+npm i --save-dev @types/eslint-plugin-react
+
+
+EXPO, ESLINT, NativeWind, SafeAreaView
