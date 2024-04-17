@@ -1,7 +1,14 @@
 import React from "react";
-
-import { View, Text, SafeAreaView, StyleSheet, FlatList } from "react-native";
+import {
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  ImageBackground,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
+
+import ListItem from "./ListItem";
 
 const DATA = [
   {
@@ -10,50 +17,46 @@ const DATA = [
     weather: [{ main: "Clear" }],
   },
   {
-    dt_txt: "2023-02-18 12:00:00",
+    dt_txt: "2023-02-18 12:00:11",
     main: { temp_max: 8.55, temp_min: 7.55 },
     weather: [{ main: "Clear" }],
   },
-  ,
   {
-    dt_txt: "2023-02-18 12:00:00",
+    dt_txt: "2023-02-18 12:00:33",
     main: { temp_max: 8.55, temp_min: 7.55 },
     weather: [{ main: "Clear" }],
   },
 ];
 
-const Item = (props) => {
-  const { dt_txt, min, max, condition } = props;
-  return (
-    <View>
-      <Feather name={"sun"} size={50} color={"white"} />
-      <Text>{dt_txt}</Text>
-      <Text>{min}</Text>
-      <Text>{max}</Text>
-    </View>
-  );
-};
-
 const UpcomingWeather = () => {
   const renderItem = ({ item }) => (
-    <Item
+    <ListItem
       condition={item.weather[0].main}
-      dt_text={item.dt_txt}
+      dt_txt={item.dt_txt}
       min={item.main.temp_min}
       max={item.main.temp_max}
     />
   );
+  const { container, image } = styles;
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <Text>Upcoming Weather</Text>
-      <FlatList data={DATA} renderItem={renderItem} />
+    <SafeAreaView style={container}>
+      <ImageBackground source={require("../../assets/sky.jpg")} style={image}>
+        <Text>Upcoming Weather</Text>
+
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.dt_txt}
+        />
+      </ImageBackground>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  wrapper: { flex: 1 },
-  container: {
+  container: { flex: 1, backgroundColor: "royalblue" },
+
+  image: {
     flex: 1,
   },
 });
