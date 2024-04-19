@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-import ListItem from "./ListItem";
+import ListItem from "../components/ListItem";
 
 const DATA = [
   {

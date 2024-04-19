@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, StatusBar } from "react-native";
-import CurrentWeather from "../components/CurrentWeather";
-import UpcomingWeather from "../components/UpcomingWeather";
-import City from "../components/City";
+import CurrentWeather from "../screens/CurrentWeather";
+import UpcomingWeather from "../screens/UpcomingWeather";
+import City from "../screens/City";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
@@ -16,7 +16,9 @@ const Tabs = () => {
         tabBarActiveTintColor: "tomato",
         tabBarInactiveTintColor: "grey",
         tabBarStyle: { backgroundColor: "lightblue" },
-        headerTitleStyle: { fontWeight: "bold", fontSize: 25 },
+        headerStyle: { backgroundColor: "lightblue" },
+
+        headerTitleStyle: { fontWeight: "bold", fontSize: 25, color: "tomato" },
       }}
     >
       <Tab.Screen

@@ -22,7 +22,8 @@ npm i --save-dev @types/eslint-plugin-react
 npm install @react-navigation/native --legacy-peer-deps
 
 npx expo install react-native-screens react-native-safe-area-context --legacy-peer-deps
-
+npx expo install expo-location -- --legacy-peer-deps
+npm install -D react-native-dotenv
 
 EXPO, ESLINT, NativeWind, SafeAreaView
 
@@ -36,3 +37,6 @@ EXPO, ESLINT, NativeWind, SafeAreaView
  git push -u origin main
 
 git push origin HEAD:main
+
+
+React Life Cycle Methods
