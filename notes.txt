@@ -38,5 +38,7 @@ EXPO, ESLINT, NativeWind, SafeAreaView
 
 git push origin HEAD:main
 
+npm i moment -- --legacy-peer-deps
+
 
 React Life Cycle Methods
