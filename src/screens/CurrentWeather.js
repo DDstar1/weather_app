@@ -23,7 +23,7 @@ const CurrentWeather = ({ weatherData }) => {
     weather,
   } = weatherData;
   const weatherCondition = weather[0].main;
-  console.log(weatherData);
+  // console.log(weatherData);
   return (
     <SafeAreaView
       style={[
