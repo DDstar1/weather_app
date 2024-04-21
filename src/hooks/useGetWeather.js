@@ -1,4 +1,5 @@
 import * as Location from "expo-location";
+import { useState, useEffect } from "react";
 import { WEATHER_API_KEY } from "@env";
 
 export const useGetWeather = () => {
