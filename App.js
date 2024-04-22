@@ -1,60 +1,49 @@
+import React, { useState, useEffect } from "react";
 import Tabs from "./src/components/Tabs";
-import { ActivityIndicator, StyleSheet } from "react-native";
+import { View, ActivityIndicator, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Counter from "./src/demonstration/Counter";
 import { StatusBar } from "expo-status-bar";
+import * as Location from "expo-location";
+import { WEATHER_API_KEY } from "@env";
 import { useGetWeather } from "./src/hooks/useGetWeather";
 import ErrorItem from "./src/components/ErrorItem";
 
-import { useFetchWeather } from "./src/hooks/useFetchWeather";
-
 const App = () => {
-  const [lat, lon, permissionError] = useGetWeather();
-  const [loading, error, weather] = useFetchWeather(lat, lon);
+  const [loading, error, weather, lat, lon] = useGetWeather();
+  console.log(loading, error, weather);
 
-  console.log(lat, lon);
-  console.log(weather.list);
+  if (loading) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size={"large"} color={"blue"} />
+      </View>
+    );
+  }
 
-  return loading ? (
-    <ActivityIndicator style={styles.container} size={"large"} color={"blue"} />
-  ) : permissionError || error ? (
-    <ErrorItem
-      loading={loading}
-      error={error}
-      weather={weather}
-      lat={lat}
-      lon={lon}
-    />
-  ) : (
-    <NavigationContainer>
-      <Tabs weather={weather} />
-    </NavigationContainer>
+  if (weather && weather.list) {
+    return (
+      <NavigationContainer>
+        <Tabs weather={weather} />
+      </NavigationContainer>
+    );
+  }
+  return (
+    <View style={styles.container}>
+      {loading ? (
+        <ActivityIndicator size={"large"} color={"blue"} />
+      ) : (
+        <ErrorItem
+          loading={loading}
+          error={error}
+          weather={weather}
+          lat={lat}
+          lon={lon}
+        />
+      )}
+    </View>
   );
-  // if (weather_data.error) {
-  // }
-
-  // // if (weather && weather.list) {
-  // //   return (
-  //     <NavigationContainer>
-  //       <Tabs weather={weather} />
-  //     </NavigationContainer>
-  // //   );
-  // // }
-
-  // return (
-  //   <View style={styles.container}>
-  //     {loading ? (
-
-  //     ) : (
-  //       <ErrorItem
-  //         loading={loading}
-  //         error={error}
-  //         weather={weather}
-  //         lan={lan}
-  //         lon={lon}
-  //       />
-  //     )}
-  //   </View>
-  // );
 };
 
 const styles = StyleSheet.create({

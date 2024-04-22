@@ -6,6 +6,9 @@
     "preview": {
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "WEATHER_API_KEY": "244d705589909b42030664893b2d4466"
       }
     },
     "preview2": {

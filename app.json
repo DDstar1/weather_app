@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.ddhaven.WeatherApp"
@@ -32,6 +30,9 @@
       "eas": {
         "projectId": "1b159a42-5993-4a14-8de3-9b7e53675a01"
       }
-    }
+    },
+    "plugins": [
+      ["expo-build-properties", { "android": { "usesCleartextTraffic": true } }]
+    ]
   }
 }
